@@ -1,0 +1,24 @@
+void main() {
+  List<String> yourList = ["ben", "boby", "galou", "wazab", "holie"];
+  List<String> yourList2 = ["55", "35", "24", "22", "19"];
+  var details = new Map();
+  var i = 0;
+
+for ( i = 0; i < yourList.length; i++) {
+    details['${yourList[i]}'] = '${yourList2[i]}';
+
+    print('Bonjour ${yourList[i]}');
+  }
+var selectkey = details.keys.firstWhere((k) => details[k] == '${yourList2[1]}', orElse: () => null);
+//var selectval = details.values.firstWhere((k) => details[k] == ${yourList2[1]} , orElse: () => null);
+  
+
+  details.forEach((key, val) {
+    print(key + ' est agé de ' + val + ' ans ');
+  });
+
+  print("L'age de "+ selectkey + " est " + details['${yourList[1]}'] + " ans ");
+
+
+  // print('${yourList[i]}');
+}
