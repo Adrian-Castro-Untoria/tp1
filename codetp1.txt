@@ -1,24 +1,51 @@
 void main() {
   List<String> yourList = ["ben", "boby", "galou", "wazab", "holie"];
   List<String> yourList2 = ["55", "35", "24", "22", "19"];
+  List<String> yourList3 = ["otaw", "manataw", "grostaw", "nimaw", "finlaw"];
   var details = new Map();
   var i = 0;
 
-for ( i = 0; i < yourList.length; i++) {
+  
+
+  for (i = 0; i < yourList.length; i++) {
     details['${yourList[i]}'] = '${yourList2[i]}';
 
     print('Bonjour ${yourList[i]}');
   }
-var selectkey = details.keys.firstWhere((k) => details[k] == '${yourList2[1]}', orElse: () => null);
+  var selectkey = details.keys.firstWhere((k) => details[k] == '${yourList2[1]}', orElse: () => null);
 //var selectval = details.values.firstWhere((k) => details[k] == ${yourList2[1]} , orElse: () => null);
-  
 
   details.forEach((key, val) {
     print(key + ' est agé de ' + val + ' ans ');
   });
 
-  print("L'age de "+ selectkey + " est " + details['${yourList[1]}'] + " ans ");
+  print("L'age de " + selectkey + " est de " + details['${yourList[1]}'] + " ans ");
 
+  List personne = [];
+  for (i = 0; i < yourList.length; i++) {
+    personne.add(Personne('${yourList[i]}', '${yourList2[i]}', '${yourList3[i]}'));
+    personne.add(Personne.imprimerInfos('${yourList[i]}', '${yourList2[i]}', '${yourList3[i]}'));
+  }
 
-  // print('${yourList[i]}');
+  //var personne = Personne("Justin","49","Ottawa");
+  for (i = 0; i < personne.length; i++) {
+    print(personne[i]);
+  }
+}
+
+class Personne {
+  final String nom;
+  final String age;
+  final String ville;
+
+  Personne(this.nom, this.age, this.ville);
+
+  static imprimerInfos(nom, age, ville) {
+    return '${nom} is ${age} and lives at ${ville}';
+  }
+
+  @override
+  String toString() {
+    return '${nom} a ${age} et habite a ${ville}';
+  }
 }
